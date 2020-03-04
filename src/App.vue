@@ -1,19 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="recipes">
+    <HelloWorld msg="Recipe Puppy App" />
+    <div v-for="(recipe, index) in recipes" v-bind:key="index">
+      <div>
+        <img :src="recipe.thumbnail" v-bind:alt="thumbnail" />
+        <h2>{{ recipe.title }}</h2>
+        <p>{{ recipe.ingredients }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { apiUrl } from "./util/constant";
+import HelloWorld from "./components/HelloWorld";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      recipes: []
+    };
+  },
+  created() {
+    this.getReceips();
+  },
+  methods: {
+    getReceips() {
+      fetch(apiUrl)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data.results);
+          this.recipes = data.results;
+        });
+    }
   }
-}
+};
 </script>
 
 <style>
