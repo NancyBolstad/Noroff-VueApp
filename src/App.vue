@@ -1,6 +1,7 @@
 <template>
-  <div class="recipes">
-    <HelloWorld msg="Recipe Puppy App" />
+  <div class="app">
+    <h1>Hello</h1>
+    <HelloWorld :msg="title" />
     <div v-for="(recipe, index) in recipes" v-bind:key="index">
       <div>
         <img :src="recipe.thumbnail" v-bind:alt="thumbnail" />
@@ -12,7 +13,6 @@
 </template>
 
 <script>
-import { apiUrl } from "./util/constant";
 import HelloWorld from "./components/HelloWorld";
 
 export default {
@@ -22,7 +22,9 @@ export default {
   },
   data() {
     return {
-      recipes: []
+      recipes: [],
+      url: process.env.VUE_APP_URL,
+      title: process.env.VUE_APP_TITLE
     };
   },
   created() {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     getReceips() {
-      fetch(apiUrl)
+      fetch(this.url)
         .then(response => {
           return response.json();
         })
