@@ -8,6 +8,7 @@
 <script>
 import DumbTitle from "./components/DumbTitle";
 import List from "./components/List";
+import { API_URL } from "./util/const";
 
 export default {
   name: "App",
@@ -17,8 +18,8 @@ export default {
   },
   data() {
     return {
-      url: process.env.VUE_APP_URL,
-      title: process.env.VUE_APP_TITLE,
+      url: API_URL,
+      title: "Recipe Puppy Vue App v.1.0",
       recipes: []
     };
   },
