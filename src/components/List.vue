@@ -1,28 +1,35 @@
 <template>
-  <div class="list">
-    <div class="item" v-for="(recipe, index) in recipes" v-bind:key="index">
-      <img :src="recipe.thumbnail" v-bind:alt="`Image of ${recipe.title}`" />
-      <h2>{{ recipe.title }}</h2>
-      <p>{{ recipe.ingredients }}</p>
+  <section>
+    <h2>{{ subText }}</h2>
+    <div class="list">
+      <div class="item" v-for="(recipe, index) in recipes" v-bind:key="index">
+        <img :src="recipe.thumbnail" v-bind:alt="`Image of ${recipe.title}`" />
+        <h3>{{ recipe.title }}</h3>
+        <p>{{ recipe.ingredients }}</p>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "List",
   props: {
-    recipes: Array
+    recipes: Array,
+    subText: String
   }
 };
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Trade+Winds&display=swap");
+section {
+  max-width: 1440px;
+  padding: 0 2rem;
+  margin: 2rem auto;
+}
 .list {
   display: flex;
-  max-width: 1440px;
-  padding: 2rem;
-  margin: 2rem auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -40,6 +47,12 @@ export default {
   width: 100%;
 }
 h2 {
+  font-family: "Trade Winds", cursive;
+  font-size: 2.7rem;
+  text-align: center;
+}
+h3 {
+  font-family: "Trade Winds", cursive;
   font-size: 2rem;
   text-align: center;
 }
