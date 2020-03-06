@@ -17,13 +17,17 @@ export default {
 <style scoped>
 header {
   border-bottom: 2px solid black;
-  text-align: left;
-  padding: 0 5rem;
-  margin: 0 auto;
+  text-align: center;
 }
 h1 {
   color: black;
   font-weight: bold;
   font-size: 1.7rem;
+}
+@media only screen and (min-width: 1080px) {
+  header {
+    text-align: left;
+    padding: 0 5rem;
+  }
 }
 </style>
