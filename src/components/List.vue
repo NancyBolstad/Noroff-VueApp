@@ -2,7 +2,11 @@
   <section>
     <h2>{{ subText }}</h2>
     <div class="list">
-      <div class="item" v-for="(recipe, index) in recipes" v-bind:key="index">
+      <div
+        class="item"
+        v-for="(recipe, index) in recipes"
+        v-bind:key="`Receipe-${index}`"
+      >
         <img :src="recipe.thumbnail" v-bind:alt="`Image of ${recipe.title}`" />
         <h3>{{ recipe.title }}</h3>
         <p>{{ recipe.ingredients }}</p>

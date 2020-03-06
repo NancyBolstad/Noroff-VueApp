@@ -1,20 +1,26 @@
 <template>
-  <div class="dumbTitle">
-    <h1>{{ msg }}</h1>
-  </div>
+  <header>
+    <h1>{{ siteName }}</h1>
+  </header>
 </template>
 
 <script>
 export default {
-  name: "DumbTitle",
+  name: "Header",
   props: {
-    msg: String
+    siteName: String
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+header {
+  border-bottom: 2px solid black;
+  text-align: left;
+  padding: 0 5rem;
+  margin: 0 auto;
+}
 h1 {
   color: black;
   font-weight: bold;
